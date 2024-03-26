@@ -5,9 +5,7 @@ import { Home, Profile, Search } from "../../screens";
 import { COLORS } from "../../constants";
 
 const BottomTabNavigationSetup = () => {
-
   const Tab = createBottomTabNavigator();
-  
 
   const screenOptions = {
     tabBarShowLabel: false,
