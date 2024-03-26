@@ -1,12 +1,13 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import { Home, Profile, Search } from "../screens";
-import { COLORS } from "../constants";
+import { Home, Profile, Search } from "../../screens";
+import { COLORS } from "../../constants";
 
 const BottomTabNavigationSetup = () => {
-    
+
   const Tab = createBottomTabNavigator();
+  
 
   const screenOptions = {
     tabBarShowLabel: false,

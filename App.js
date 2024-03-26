@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
-import FontsSetupWrapper from "./setup/FontsSetup";
-import NavigationSetupWrapper from "./navigation/NavigationSetup";
+import FontsSetupWrapper from "./setup/fonts/FontsSetup";
+import NavigationSetupWrapper from "./setup/navigation/NavigationSetup";
 
 export default function App() {
   return (
