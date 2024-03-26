@@ -23,7 +23,7 @@ const Welcome = () => {
         </Text>
       </View>
 
-      <SearchBar PageName="HOME"/>
+      <SearchBar PageName="HOME" />
     </View>
   );
 };

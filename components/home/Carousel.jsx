@@ -36,7 +36,7 @@ const Carousel = () => {
         }}
         ImageComponentStyle={{
           borderRadius: 15,
-          width: "95%",
+          width: "93%",
           marginTop: 15,
         }}
       />

@@ -3,11 +3,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, Fontisto } from "@expo/vector-icons";
 
 import { homepageStyles } from "../styles";
-import { Carousel, Welcome } from "../components";
+import { Carousel, Headings, ProductRow, Welcome } from "../components";
 
 const Home = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView >
       <View style={homepageStyles.appBarWrapper}>
         <View style={homepageStyles.appBar}>
           <Ionicons name="location-outline" size={24} />
@@ -22,9 +22,11 @@ const Home = () => {
           </View>
         </View>
       </View>
-      <ScrollView>
+      <ScrollView >
         <Welcome />
         <Carousel />
+        <Headings />
+        <ProductRow />
       </ScrollView>
     </SafeAreaView>
   );

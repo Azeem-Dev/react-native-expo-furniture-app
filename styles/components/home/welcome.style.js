@@ -4,6 +4,7 @@ import { COLORS, SIZES } from "../../../constants/index";
 export default welcomeStyles = StyleSheet.create({
   container: {
     width: "100%",
+    marginHorizontal:SIZES.marginHorizontal,
   },
   wlcmText: (color, top = SIZES.xSmall) => ({
     fontFamily: "bold",

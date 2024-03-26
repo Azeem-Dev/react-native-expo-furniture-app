@@ -7,7 +7,7 @@ export default homepageStyles = StyleSheet.create({
     fontSize: 40,
   },
   appBarWrapper: {
-    marginHorizontal: 22,
+    marginHorizontal: SIZES.marginHorizontal,
     marginTop: SIZES.small,
   },
   appBar: {
