@@ -1,12 +1,14 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import { searchpageStyles } from "../styles/index";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { SearchBar } from "../components";
 
 const Search = () => {
   return (
-    <View>
-      <Text>Search</Text>
-    </View>
-  )
-}
+    <SafeAreaView>
+      <SearchBar PageName="SEARCH" />
+    </SafeAreaView>
+  );
+};
 
-export default Search
+export default Search;

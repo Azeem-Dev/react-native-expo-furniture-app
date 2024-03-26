@@ -1,14 +1,32 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import homepageStyles from '../styles/pages/homepage.style';
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons, Fontisto } from "@expo/vector-icons";
 
+import { homepageStyles } from "../styles";
+import { Welcome } from "../components";
 
 const Home = () => {
   return (
-    <View>
-      <Text style={homepageStyles.text}>Home</Text>
-    </View>
-  )
-}
+    <SafeAreaView>
+      <View style={homepageStyles.appBarWrapper}>
+        <View style={homepageStyles.appBar}>
+          <Ionicons name="location-outline" size={24} />
+          <Text style={homepageStyles.location}>Shanghai, China</Text>
+          <View style={homepageStyles.cartContainer}>
+            <View style={homepageStyles.cartCount}>
+              <Text style={homepageStyles.cartCountNumberColor}>8</Text>
+            </View>
+            <TouchableOpacity>
+              <Fontisto name="shopping-bag" size={24} />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+      <ScrollView>
+        <Welcome />
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 export default Home;

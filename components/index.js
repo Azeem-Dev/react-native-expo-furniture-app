@@ -1,3 +1,4 @@
-import SafeAreaWrapper from "./SafeAreaWrapper/SafeAreaWrapper";
+import Welcome from "./home/Welcome";
+import SearchBar from './search/SearchBar';
 
-export { SafeAreaWrapper };
+export { Welcome,SearchBar };
