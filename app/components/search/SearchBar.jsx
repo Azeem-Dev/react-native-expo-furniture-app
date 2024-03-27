@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { searchBarStyles } from "../../styles";
+import { searchBarStyles  as styles} from "../../styles";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../../constants";
 
@@ -18,10 +18,10 @@ const SearchBar = ({ PageName = "SEARCH" }) => {
       <Ionicons
         name="camera-outline"
         size={SIZES.xLarge}
-        style={searchBarStyles.searchIcon}
+        style={styles.searchIcon}
       />
     ) : (
-      <Feather name="search" size={24} style={searchBarStyles.searchIcon} />
+      <Feather name="search" size={24} style={styles.searchIcon} />
     );
   };
 
@@ -37,21 +37,21 @@ const SearchBar = ({ PageName = "SEARCH" }) => {
     );
   };
   return (
-    <View style={searchBarStyles.searchContainer}>
+    <View style={styles.searchContainer}>
       <TouchableOpacity>
         <LeftIconBasedOnPage />
       </TouchableOpacity>
 
-      <View style={searchBarStyles.searchWrapper}>
+      <View style={styles.searchWrapper}>
         <TextInput
           placeholder="What are you looking for?"
-          style={searchBarStyles.searchInput}
+          style={styles.searchInput}
           onPressIn={navigateToSearchPage}
         />
       </View>
 
       <View>
-        <TouchableOpacity style={searchBarStyles.searchBtn}>
+        <TouchableOpacity style={styles.searchBtn}>
           <RightIconBasedOnPage />
         </TouchableOpacity>
       </View>

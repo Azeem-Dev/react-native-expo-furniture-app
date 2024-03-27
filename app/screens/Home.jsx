@@ -2,19 +2,19 @@ import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, Fontisto } from "@expo/vector-icons";
 
-import { homepageStyles } from "../styles";
+import { homepageStyles as styles } from "../styles";
 import { Carousel, Headings, ProductRow, Welcome } from "../components";
 
 const Home = () => {
   return (
     <SafeAreaView >
-      <View style={homepageStyles.appBarWrapper}>
-        <View style={homepageStyles.appBar}>
+      <View style={styles.appBarWrapper}>
+        <View style={styles.appBar}>
           <Ionicons name="location-outline" size={24} />
-          <Text style={homepageStyles.location}>Shanghai, China</Text>
-          <View style={homepageStyles.cartContainer}>
-            <View style={homepageStyles.cartCount}>
-              <Text style={homepageStyles.cartCountNumberColor}>8</Text>
+          <Text style={styles.location}>Shanghai, China</Text>
+          <View style={styles.cartContainer}>
+            <View style={styles.cartCount}>
+              <Text style={styles.cartCountNumberColor}>8</Text>
             </View>
             <TouchableOpacity>
               <Fontisto name="shopping-bag" size={24} />

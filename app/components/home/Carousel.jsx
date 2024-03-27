@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import { SliderBox } from "react-native-image-slider-box";
 
-import { carouselStyles } from "../../styles";
+import { carouselStyles as styles } from "../../styles";
 import { COLORS } from "../../constants";
 
 const Carousel = () => {
@@ -11,7 +11,7 @@ const Carousel = () => {
     "https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg",
   ];
   return (
-    <View style={carouselStyles.carouselContainer}>
+    <View style={styles.carouselContainer}>
       <SliderBox
         images={slides}
         autoplay={true}

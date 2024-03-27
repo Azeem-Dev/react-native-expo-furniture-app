@@ -1,12 +1,12 @@
 import { View, Text, FlatList } from "react-native";
-import { productRowStyles } from "../../styles";
+import { productRowStyles  as styles} from "../../styles";
 import { SIZES } from "../../constants";
 import ProductCardView from "./ProductCardView";
 
 const ProductRow = () => {
   const products = [1, 2, 3, 4];
   return (
-    <View style={productRowStyles.rowContainer}>
+    <View style={styles.rowContainer}>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
