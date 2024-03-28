@@ -2,7 +2,7 @@ const app = require("../middlewares");
 
 const productRoutes = require("./product/productRoutes");
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/api", (req, res) => res.send("Hello World!"));
 
 app.use("/api/products", productRoutes);
 

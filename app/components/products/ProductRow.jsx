@@ -1,22 +1,34 @@
-import { View, Text, FlatList } from "react-native";
-import { productRowStyles  as styles} from "../../styles";
-import { SIZES } from "../../constants";
+import { View, Text, FlatList, ActivityIndicator } from "react-native";
+import { productRowStyles as styles } from "../../styles";
+import { COLORS, SIZES } from "../../constants";
 import ProductCardView from "./ProductCardView";
+import useFetch from "../../hook/useFetch";
+import { getAllProducts } from "../../api/db";
+import { useEffect } from "react";
 
 const ProductRow = () => {
-  const products = [1, 2, 3, 4];
+  const { data, error, loading } = useFetch(getAllProducts);
+
+  useEffect(() => {}, [data, error, loading]);
+
   return (
     <View style={styles.rowContainer}>
-      <FlatList
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={products}
-        keyExtractor={(item, index) => index}
-        renderItem={({ item }) => {
-          return <ProductCardView />;
-        }}
-        contentContainerStyle={{ columnGap: SIZES.medium }}
-      />
+      {loading ? (
+        <ActivityIndicator size={SIZES.xxLarge} color={COLORS.primary} />
+      ) : error ? (
+        <Text>Ooopss something went wrong</Text>
+      ) : (
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={data}
+          keyExtractor={(item, index) => item._id}
+          renderItem={({ item }) => {
+            return <ProductCardView product={item} />;
+          }}
+          contentContainerStyle={{ columnGap: SIZES.medium }}
+        />
+      )}
     </View>
   );
 };

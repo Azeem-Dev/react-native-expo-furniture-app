@@ -54,10 +54,30 @@ const searhcProduct = async (req, res) => {
       .json("failed to search the products with key : " + req.params.key);
   }
 };
+const getNewArrivals = async (req, res) => {
+  try {
+    const today = new Date();
+    const oneWeekAgo = new Date(today);
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+    const results = await Product.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: oneWeekAgo, $lte: today },
+        },
+      },
+    ]);
+
+    res.status(200).json(results);
+  } catch (error) {
+    res.status(500).json("Failed to fetch the products");
+  }
+};
 
 module.exports = {
   createProduct,
   getAllProducts,
   getProductById,
   searhcProduct,
+  getNewArrivals
 };
