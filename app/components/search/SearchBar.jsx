@@ -27,7 +27,7 @@ const SearchBar = ({ PageName = "SEARCH", value, updateSearchCallBack }) => {
 
   const RightIconBasedOnPage = () => {
     return !isHomePage ? (
-      <Feather name="search" size={24} color={COLORS.offwhite} />
+      <Ionicons name="close-outline" size={28} color={COLORS.offwhite} />
     ) : (
       <Ionicons
         name="camera-outline"
@@ -62,7 +62,14 @@ const SearchBar = ({ PageName = "SEARCH", value, updateSearchCallBack }) => {
       <View style={styles.searchWrapper}>{getSearchBarForSearchPage()}</View>
 
       <View>
-        <TouchableOpacity style={styles.searchBtn}>
+        <TouchableOpacity
+          style={styles.searchBtn}
+          onPress={() => {
+            if (!isHomePage) {
+              updateSearchCallBack("");
+            }
+          }}
+        >
           <RightIconBasedOnPage />
         </TouchableOpacity>
       </View>
