@@ -1,8 +1,6 @@
-const express = require("express");
+const app = require("../middlewares");
 
 const productRoutes = require("./product/productRoutes");
-
-const app = express();
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
