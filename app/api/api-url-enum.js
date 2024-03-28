@@ -16,4 +16,9 @@ export const apiUrlEnum = {
     method: "GET",
     params: {},
   },
+  searchProductsCall: {
+    endPoint: `${API_BASE_URL}/products/search/{QUERY}`,
+    method: "GET",
+    params: {},
+  },
 };

@@ -32,20 +32,26 @@ const getProductById = async (req, res) => {
 };
 
 const searhcProduct = async (req, res) => {
+  let results = [];
   try {
-    const results = await Product.aggregate([
-      {
-        $search: {
-          index: "furniture_index",
-          text: {
-            query: req.params.key,
-            path: {
-              wildcard: "*",
+    
+    if (req.params.key == '-1') {
+      results = await Product.find().sort({ createdAt: -1 });
+    } else {
+      results = await Product.aggregate([
+        {
+          $search: {
+            index: "furniture_index",
+            text: {
+              query: req.params.key,
+              path: {
+                wildcard: "*",
+              },
             },
           },
         },
-      },
-    ]);
+      ]);
+    }
 
     res.status(200).json(results);
   } catch (error) {
@@ -79,5 +85,5 @@ module.exports = {
   getAllProducts,
   getProductById,
   searhcProduct,
-  getNewArrivals
+  getNewArrivals,
 };

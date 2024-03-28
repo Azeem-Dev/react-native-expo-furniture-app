@@ -12,3 +12,8 @@ export const getProductById = (id) => {
 export const getNewArrivals = () => {
   return baseApiCall(apiUrlEnum.getNewArrivalsCall);
 };
+export const searchProduct = (query) => {
+  let call = { ...apiUrlEnum.searchProductsCall };
+  call.endPoint = call.endPoint.replace("{QUERY}", (query == "" ? "-1" : query));
+  return baseApiCall(call);
+};

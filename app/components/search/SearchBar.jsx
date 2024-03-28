@@ -1,11 +1,11 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { searchBarStyles  as styles} from "../../styles";
+import { searchBarStyles as styles } from "../../styles";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../../constants";
 
-const SearchBar = ({ PageName = "SEARCH" }) => {
+const SearchBar = ({ PageName = "SEARCH", value, updateSearchCallBack }) => {
   const navigation = useNavigation();
   const isHomePage = PageName === "HOME";
 
@@ -36,19 +36,30 @@ const SearchBar = ({ PageName = "SEARCH" }) => {
       />
     );
   };
+
+  const getSearchBarForSearchPage = () => {
+    return isHomePage ? (
+      <TextInput
+        placeholder="What are you looking for?"
+        style={styles.searchInput}
+        onPressIn={navigateToSearchPage}
+      />
+    ) : (
+      <TextInput
+        placeholder="What are you looking for?"
+        style={styles.searchInput}
+        onChangeText={(val) => updateSearchCallBack(val)}
+        value={value}
+      />
+    );
+  };
   return (
     <View style={styles.searchContainer}>
       <TouchableOpacity>
         <LeftIconBasedOnPage />
       </TouchableOpacity>
 
-      <View style={styles.searchWrapper}>
-        <TextInput
-          placeholder="What are you looking for?"
-          style={styles.searchInput}
-          onPressIn={navigateToSearchPage}
-        />
-      </View>
+      <View style={styles.searchWrapper}>{getSearchBarForSearchPage()}</View>
 
       <View>
         <TouchableOpacity style={styles.searchBtn}>

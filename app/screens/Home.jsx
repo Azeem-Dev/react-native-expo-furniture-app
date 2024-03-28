@@ -4,10 +4,13 @@ import { Ionicons, Fontisto } from "@expo/vector-icons";
 
 import { homepageStyles as styles } from "../styles";
 import { Carousel, Headings, ProductRow, Welcome } from "../components";
+import { getAllProducts } from "../api/db";
+import useFetch from "../hook/useFetch";
 
 const Home = () => {
+  const { data, error, loading } = useFetch(getAllProducts);
   return (
-    <SafeAreaView >
+    <SafeAreaView>
       <View style={styles.appBarWrapper}>
         <View style={styles.appBar}>
           <Ionicons name="location-outline" size={24} />
@@ -22,11 +25,11 @@ const Home = () => {
           </View>
         </View>
       </View>
-      <ScrollView >
+      <ScrollView>
         <Welcome />
         <Carousel />
         <Headings />
-        <ProductRow />
+        <ProductRow data={data} error={error} loading={loading} screen="HOME" />
       </ScrollView>
     </SafeAreaView>
   );

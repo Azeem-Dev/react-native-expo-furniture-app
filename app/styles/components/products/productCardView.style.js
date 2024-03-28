@@ -3,15 +3,16 @@ import { COLORS, SIZES } from "../../../constants/index";
 
 export default productCardViewStyles = StyleSheet.create({
   container: {
-    width: 182,
+    width: SIZES.width * 0.45,
     height: 240,
-    marginEnd: 22,
+    marginEnd: SIZES.width * 0.018,
     borderRadius: SIZES.medium,
     backgroundColor: COLORS.secondary,
+    marginTop:SIZES.height * 0.01
   },
   imageContainer: {
     flex: 1,
-    width: 170,
+    width: SIZES.width * 0.40,
     marginLeft: SIZES.small / 2,
     marginTop: SIZES.small / 2,
     borderRadius: SIZES.small,
